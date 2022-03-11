@@ -7,22 +7,31 @@
     </div>
     <div class="top-breadcrumbs">
       <a-breadcrumb>
-        <a-breadcrumb-item>首页</a-breadcrumb-item>
-        <a-breadcrumb-item><a href="">Application er</a></a-breadcrumb-item>
-        <a-breadcrumb-item><a href="">Application List</a></a-breadcrumb-item>
-        <a-breadcrumb-item>An Application</a-breadcrumb-item>
+        <a-breadcrumb-item>
+          <router-link to="/"> 首页 </router-link>
+        </a-breadcrumb-item>
+        <a-breadcrumb-item v-if="$router.currentRoute.matched[1]">
+          <router-link :to="$router.currentRoute.matched[1].name">
+            {{$route.meta.title}}
+          </router-link>
+        </a-breadcrumb-item>
       </a-breadcrumb>
     </div>
     <ul class="count-info">
-      <li><a href="javascript:void(0)">{{this.$store.state.userInfo.username}}</a></li>
+      <li> {{this.$store.state.userInfo.username}} <a-icon type="down" /></li>
+      <transition duration="0.3s" name="fade">
       <li><a  @click.prevent="removeInfo">退出</a></li>
+      </transition>
     </ul>
   </div>
 </template>
 
 <script>
   export default {
-      methods:{
+      created() {
+        console.log(this.$route)
+      },
+    methods:{
         toggleCollapsed(){
             this.$store.dispatch('change')
         },

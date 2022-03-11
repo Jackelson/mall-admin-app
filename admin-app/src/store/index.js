@@ -8,6 +8,7 @@ export default new Vuex.Store({
     // 用于切换菜单得转换
     collapsed:false,
     userInfo:getCookie('userInfo'),
+    menuRoutes:[]
   },
   mutations: {
     changeCollage(state){
@@ -23,7 +24,9 @@ export default new Vuex.Store({
         // role: "",
         // username: "",
       };
-
+    },
+    changeMenu(state,routes){
+        state.menuRoutes = routes
     }
   },
   actions: {
@@ -37,6 +40,9 @@ export default new Vuex.Store({
     remove({commit}){
        commit('removeInfo');
       removeCookie('userInfo');
+    },
+    changeMenu({commit},routes){
+        commit("changeMenu",routes)
     }
   },
   modules: {

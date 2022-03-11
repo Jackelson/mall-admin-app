@@ -1,11 +1,20 @@
 import axios from "axios";
+import Store from "@/store/index";
 const instance = axios.create({
   baseURL:'https://mallapi.duyiedu.com/'
 })
 instance.interceptors.request.use((config)=>{
-  console.log(config)
-  // if(config)
-   return config;
+   if(config.url.includes('/passport')){
+        return config
+   }else{
+      return {
+        ...config,
+        params:{
+            ...config.params,
+            appkey:Store.state.userInfo.appkey
+        }
+      }
+   }
 },error=>{
     console.log(error);
 })

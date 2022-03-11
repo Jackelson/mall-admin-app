@@ -1,12 +1,20 @@
 <template>
-  <div>
-      <h1>这是商品列表</h1>
+  <div class="list">
+    <Seach @submit="handelSubmit"/>
   </div>
 </template>
 
 <script>
+  import Seach from './components/seach'
   export default {
-
+      components:{
+        Seach
+      },
+      methods:{
+        handelSubmit(val){
+          console.log(val)
+        }
+      }
   }
 </script>
 

@@ -5,21 +5,22 @@
   </div>
 </template>
 <script>
-  import Menu from '../../components/Menu'
-  import Main from '../../components/Main/index'
-  export default {
-    components:{
-      Menu,
-      Main
-    },
-    data() {
-      return {
+import Menu from '../../components/Menu.vue';
+import Main from '../../components/Main/index.vue';
 
-      };
-    },
-    methods: {
-    },
-  };
+export default {
+  components: {
+    Menu,
+    Main,
+  },
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+  },
+};
 </script>
 <style lang="less">
   @import "~@/styles/home.less";

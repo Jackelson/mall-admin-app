@@ -7,12 +7,13 @@
   </div>
 </template>
 <script>
-  import Header from '@/views/components/Main/Header'
-  export default {
-      components:{
-        Header,
-      }
-  }
+import Header from '@/views/components/Main/Header/index.vue';
+
+export default {
+  components: {
+    Header,
+  },
+};
 </script>
 
 <style scoped lang="less">

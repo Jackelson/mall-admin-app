@@ -10,14 +10,15 @@
 </template>
 
 <script>
-  import Card from './Card';
-  import Grap from "./Grap";
-  export default {
-      components:{
-        Card,
-        Grap
-      }
-  }
+import Card from './Card.vue';
+import Grap from './Grap.vue';
+
+export default {
+  components: {
+    Card,
+    Grap,
+  },
+};
 </script>
 
 <style scoped>

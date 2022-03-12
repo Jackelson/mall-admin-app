@@ -1,44 +1,44 @@
 const roleRouter = {
-  "coustomer": [
+  coustomer: [
     {
-      name: "Product"
+      name: 'Product',
     },
     {
-      name: "Add",
+      name: 'Add',
     },
     {
-      name: "List"
+      name: 'List',
     },
   ],
-  "admin": [
+  admin: [
     {
-      name: "Product"
+      name: 'Product',
     },
     {
-      name: "Add",
+      name: 'Add',
     },
     {
-      name: "List"
+      name: 'List',
     },
     {
-      name: "Category"
+      name: 'Category',
     },
-  ]
-}
+  ],
+};
 export default function (role, routers) {
-  console.log(role,routers);
-  const routerName = roleRouter[role].map(item => item.name);
-  const resultRouter = routers.filter(a => {
+  console.log(role, routers);
+  const routerName = roleRouter[role].map((item) => item.name);
+  const resultRouter = routers.filter((a) => {
     if (routerName.indexOf(a.name) !== -1) {
-      const children = a.children;
-     a.children =  children.filter(b => {
+      const { children } = a;
+      a.children = children.filter((b) => {
         if (routerName.indexOf(b.name) !== -1) {
           return true;
         }
-      })
+      });
       return true;
     }
     return false;
-  })
+  });
   return resultRouter;
 }

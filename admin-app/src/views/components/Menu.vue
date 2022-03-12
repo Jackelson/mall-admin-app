@@ -7,19 +7,22 @@
       theme="dark"
       :inline-collapsed="$store.state.collapsed"
     >
-      <a-sub-menu v-if="n.isShow" v-for="n in $store.state.menuRoutes" :key="n.name">
-        <span slot="title"><a-icon :type="n.type"/><span>{{n.meta.title}}</span></span>
-        <a-menu-item v-for="i in n.children" :key="i.name">
-          <router-link :to="i.path"> <a-icon :type="i.type"/> {{i.meta.title}}</router-link>
-        </a-menu-item>
-      </a-sub-menu>
+      <template v-for="n in $store.state.menuRoutes" >
+        <a-sub-menu v-if="n.isShow" :key="n.name">
+          <span slot="title"><a-icon :type="n.type"/><span>{{n.meta.title}}</span></span>
+          <a-menu-item v-for="i in n.children" :key="i.name">
+            <router-link :to="i.path">
+              <a-icon :type="i.type"/>
+              {{i.meta.title}}
+            </router-link>
+          </a-menu-item>
+        </a-sub-menu>
+      </template>
     </a-menu>
   </div>
 </template>
 <script>
-  export default {
-
-  }
+export default {};
 </script>
 
 <style scoped>

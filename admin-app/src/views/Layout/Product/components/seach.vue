@@ -3,7 +3,7 @@
     <a-form-model layout="inline" :model="formSearch" @submit="handleSubmit" @submit.native.prevent>
       <a-form-model-item label="检索关键字">
         <a-input v-model="formSearch.searchWord" placeholder="请输入关键词">
-          <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
+          <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)"/>
         </a-input>
       </a-form-model-item>
       <a-form-model-item label="检索字段">
@@ -14,7 +14,7 @@
           @change="handleChange"
         >
           <a-select-option v-for="n in this.cateGoryList" :key="n._id" :value="n.id">
-                {{n.name}}
+            {{n.name}}
           </a-select-option>
         </a-select>
       </a-form-model-item>
@@ -31,35 +31,36 @@
 </template>
 
 <script>
-  import api from '@/api/index'
-  export default {
-    data() {
-      return {
-        formSearch: {
-          searchWord: '',
-          cateGory:'',
-        },
-        cateGoryList:[],
-      };
-    },
-    created() {
-        api.getCategory().then(res=>{
-           this.cateGoryList = res.data;
-        })
-    },
-    methods: {
-      handleSubmit(e) {
-        this.$emit("submit",this.formSearch)
+import api from '@/api/index';
+
+export default {
+  data() {
+    return {
+      formSearch: {
+        searchWord: '',
+        cateGory: '',
       },
-      handleChange(val){
-        this.formSearch.cateGory = val;
-      }
+      cateGoryList: [],
+    };
+  },
+  created() {
+    api.getCategory().then((res) => {
+      this.cateGoryList = res.data;
+    });
+  },
+  methods: {
+    handleSubmit(e) {
+      this.$emit('submit', this.formSearch);
     },
-  };
+    handleChange(val) {
+      this.formSearch.cateGory = val;
+    },
+  },
+};
 </script>
 
 <style scoped>
-    .seach-container{
-      padding: 10px 30px;
-    }
+  .seach-container {
+    padding: 10px 30px;
+  }
 </style>

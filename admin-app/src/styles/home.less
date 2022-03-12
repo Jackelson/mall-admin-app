@@ -1,0 +1,49 @@
+.home {
+  height: 100%;
+  position: relative;
+  .menu-list {
+    width: 180px;
+    position: fixed;
+    height: 100%;
+    .ant-menu {
+      height: 100%;
+      transition: all 0.5s;
+    }
+  }
+  .main-app {
+    .main-top {
+      height: 50px;
+      .top-button{
+        margin-top: 10px;
+        margin-left: 190px;
+        transition: all 0.6s;
+        display: inline-block;
+        &.co-button{
+          margin-left: 90px;
+        }
+        padding-right: 20px;
+      }
+      .top-breadcrumbs{
+         display: flex;
+        align-items:center;
+        display: inline-block;
+      }
+      .count-info{
+        margin-top: 10px;
+        margin-right: 30px;
+        float: right;
+        text-align: center;
+        li:not(:first-child){
+          display: none;
+          border: 1px solid gray;
+          padding: 0 20px;
+        }
+        &:hover{
+          li{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

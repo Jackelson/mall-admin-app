@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Menu/>
+    <Menu :key="key"/>
     <Main/>
   </div>
 </template>
@@ -15,8 +15,13 @@ export default {
   },
   data() {
     return {
-
+      key: new Date().getTime(),
     };
+  },
+  watch: {
+    $route() {
+      this.key = new Date().getTime();
+    },
   },
   methods: {
   },

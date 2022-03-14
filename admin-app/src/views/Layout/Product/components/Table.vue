@@ -1,18 +1,13 @@
 <template>
-  <a-table :columns="columns" :data-source="tableList" :pagination="pageNation">
-    <div slot="operation">
-      <a-button>编辑</a-button>
-      <a-button>删除</a-button>
+  <a-table :columns="columns" :data-source="tableData" :pagination='pageInfo' @change="changPage">
+    <div slot="operation" slot-scope="text,record">
+      <button  @click="edit(record)">编辑</button>
+      <button @click="remove(record)">删除</button>
     </div>
   </a-table>
 </template>
 <script>
 const columns = [
-  {
-    title: 'ID',
-    dataIndex: 'id',
-    key: 'id',
-  },
   {
     title: '商品名称',
     dataIndex: 'title',
@@ -26,7 +21,7 @@ const columns = [
   },
   {
     title: '类目',
-    dataIndex: 'category',
+    dataIndex: 'categoryName',
     key: 'category',
     ellipsis: true,
   },
@@ -40,15 +35,10 @@ const columns = [
     title: '折扣价格',
     dataIndex: 'price_off',
     key: 'price_off',
-  },
-  {
-    title: '商品标签',
-    dataIndex: 'tags',
-    key: 'tags',
     ellipsis: true,
   },
   {
-    title: '销量',
+    title: '商品销量',
     dataIndex: 'sale',
     key: 'sale',
     ellipsis: true,
@@ -64,10 +54,12 @@ const columns = [
     dataIndex: 'status',
     key: 'status',
     ellipsis: true,
+    customRender(text, record) {
+      return record.status === 1 ? '上架' : '下架';
+    },
   },
   {
     title: '操作',
-    dataIndex: 'operation',
     key: 'operation',
     scopedSlots: {
       customRender: 'operation',
@@ -75,33 +67,36 @@ const columns = [
   },
 ];
 export default {
-  props: [
-    'list',
-  ],
   data() {
     return {
       columns,
-      pageNation: {
-        current: 1,
-        pageSize: 10,
-        showSizeChanger: true,
-        total: 1,
-      },
     };
   },
+  props: ['data', 'pageInfo'],
   computed: {
-    tableList() {
-      return this.list.map((ele) => ({
-        ...ele,
-        key: ele.id,
+    tableData() {
+      return this.data.map((item) => ({
+        ...item,
+        key: item.id,
+
       }));
     },
-    handelData() {
-      this.pageNation.total = this.list.length;
-    },
   },
-  mounted() {
-
+  methods: {
+    changPage(page) {
+      this.$emit('change', page);
+    },
+    edit(record) {
+      this.$router.push({
+        path: '/add',
+        params: {
+          id: record.id,
+        },
+      });
+    },
+    remove(record) {
+      this.$emit('removeHandel', record);
+    },
   },
 };
 </script>

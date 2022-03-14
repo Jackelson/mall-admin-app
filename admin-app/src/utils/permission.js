@@ -26,7 +26,6 @@ const roleRouter = {
   ],
 };
 export default function (role, routers) {
-  console.log(role, routers);
   const routerName = roleRouter[role].map((item) => item.name);
   const resultRouter = routers.filter((a) => {
     if (routerName.indexOf(a.name) !== -1) {

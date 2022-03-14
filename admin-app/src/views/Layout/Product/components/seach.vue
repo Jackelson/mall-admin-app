@@ -13,7 +13,7 @@
           style="width: 200px"
           @change="handleChange"
         >
-          <a-select-option v-for="n in this.cateGoryList" :key="n.name" :value="n.id">
+          <a-select-option v-for="n in cateGory" :key="n._id" :value="n.id">
             {{n.name}}
           </a-select-option>
         </a-select>
@@ -40,14 +40,9 @@ export default {
         searchWord: '',
         category: '',
       },
-      cateGoryList: [],
     };
   },
-  created() {
-    api.getCategory().then((res) => {
-      this.cateGoryList = res.data;
-    });
-  },
+  props: ['cateGory'],
   methods: {
     handleSubmit(e) {
       this.$emit('submit', this.formSearch);

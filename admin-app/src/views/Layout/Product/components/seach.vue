@@ -13,7 +13,7 @@
           style="width: 200px"
           @change="handleChange"
         >
-          <a-select-option v-for="n in this.cateGoryList" :key="n._id" :value="n.id">
+          <a-select-option v-for="n in this.cateGoryList" :key="n.name" :value="n.id">
             {{n.name}}
           </a-select-option>
         </a-select>
@@ -38,7 +38,7 @@ export default {
     return {
       formSearch: {
         searchWord: '',
-        cateGory: '',
+        category: '',
       },
       cateGoryList: [],
     };
@@ -53,7 +53,7 @@ export default {
       this.$emit('submit', this.formSearch);
     },
     handleChange(val) {
-      this.formSearch.cateGory = val;
+      this.formSearch.category = val;
     },
   },
 };

@@ -7,4 +7,7 @@ export default {
   getCategory(params) {
     return axios.get('/category/all', { params });
   },
+  getProductList(params) {
+    return axios.get('/products/all', { params });
+  },
 };

@@ -1,4 +1,5 @@
 module.exports = {
+  lintOnSave: false,
   css: {
     loaderOptions: {
       less: {
@@ -6,5 +7,4 @@ module.exports = {
       },
     },
   },
-  lintOnSave: false,
 };

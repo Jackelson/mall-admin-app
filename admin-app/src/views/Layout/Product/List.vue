@@ -1,31 +1,19 @@
 <template>
-<<<<<<< HEAD
-  <div>
-      <h1>这是商品列表</h1>
-=======
-  <div class="list">
-    <Seach @submit="handelSubmit"/>
->>>>>>> e8d480eee26bbb0e20f84b3539ae900c3e8feab4
+  <div class="product-list">
+    <Search/>
+    <Table/>
   </div>
 </template>
-
 <script>
-<<<<<<< HEAD
-  export default {
+import Search from './components/seach.vue';
+import Table from './components/Table.vue';
 
-=======
-  import Seach from './components/seach'
-  export default {
-      components:{
-        Seach
-      },
-      methods:{
-        handelSubmit(val){
-          console.log(val)
-        }
-      }
->>>>>>> e8d480eee26bbb0e20f84b3539ae900c3e8feab4
-  }
+export default {
+  components: {
+    Search,
+    Table,
+  },
+};
 </script>
 
 <style scoped>

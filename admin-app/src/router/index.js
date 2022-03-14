@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from '@/store';
 import Home from '../views/Layout/Home/index.vue';
 import Login from '../views/login';
-import store from '@/store';
-import permission from "../utils/permission";
+import permission from '../utils/permission';
 
 Vue.use(VueRouter);
 const asyncRouterMap = [
@@ -24,7 +24,7 @@ const asyncRouterMap = [
           title: '商品列表',
         },
         type: 'apartment',
-        component: () => import("../views/Layout/Product/List")
+        component: () => import('../views/Layout/Product/List'),
       }, {
         path: '/add',
         name: 'Add',
@@ -32,7 +32,7 @@ const asyncRouterMap = [
           title: '添加商品',
         },
         type: 'bars',
-        component: () => import("../views/Layout/Product/addProduct")
+        component: () => import('../views/Layout/Product/addProduct'),
       }, {
         path: '/category',
         name: 'Category',
@@ -40,19 +40,19 @@ const asyncRouterMap = [
           title: '类目管理',
         },
         type: 'menu',
-        component: () => import("../views/Layout/Product/Category")
+        component: () => import('../views/Layout/Product/Category'),
       },
 
-    ]
-  }
-]
+    ],
+  },
+];
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home,
     meta: {
-      title: '首页'
+      title: '首页',
     },
     isShow: true,
     type: 'home',
@@ -63,10 +63,10 @@ const routes = [
         type: 'fund',
         component: () => import('../views/Layout/Home/Statis/index.vue'),
         meta: {
-          title: '统计'
-        }
-      }
-    ]
+          title: '统计',
+        },
+      },
+    ],
   },
   {
     path: '/login',
@@ -74,16 +74,15 @@ const routes = [
     component: Login,
     isShow: false,
     meta: {
-      title: "login"
-    }
+      title: 'login',
+    },
   },
 ];
 const router = new VueRouter({
   routes,
 });
 let isRouter = false;
-router.beforeEach(function (to, from, next) {
-
+router.beforeEach((to, from, next) => {
   if (to.path !== '/login') {
     if (store.state.userInfo.username && store.state.userInfo.email) {
       const sub = permission(store.state.userInfo.role, asyncRouterMap);
@@ -92,12 +91,11 @@ router.beforeEach(function (to, from, next) {
         router.addRoutes(sub);
         isRouter = true;
       }
-      return next()
-    } else {
-      return next('/login')
+      return next();
     }
+    return next('/login');
   }
-  next()
-})
+  next();
+});
 
 export default router;

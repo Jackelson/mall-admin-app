@@ -27,22 +27,19 @@
 </template>
 
 <script>
-  export default {
-      created() {
-        console.log(this.$route)
-      },
-    methods:{
-        toggleCollapsed(){
-            this.$store.dispatch('change')
-        },
-        removeInfo(){
-            this.$store.dispatch('remove');
-            this.$router.replace({
-              name:'Login'
-            })
-        }
-      }
-  }
+export default {
+  methods: {
+    toggleCollapsed() {
+      this.$store.dispatch('change');
+    },
+    removeInfo() {
+      this.$store.dispatch('remove');
+      this.$router.replace({
+        name: 'Login',
+      });
+    },
+  },
+};
 </script>
 
 <style scoped>

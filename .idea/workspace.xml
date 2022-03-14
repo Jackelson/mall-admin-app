@@ -73,6 +73,7 @@
       <created>1646617563965</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
       <updated>1646617563965</updated>
       <workItem from="1646617590185" duration="2382000" />
       <workItem from="1646621209439" duration="14280000" />
@@ -82,6 +83,16 @@
       <workItem from="1646986308605" duration="5263000" />
       <workItem from="1647048387402" duration="3377000" />
       <workItem from="1647216210884" duration="1373000" />
+=======
+      <updated>1646307295252</updated>
+      <workItem from="1646307302514" duration="7646000" />
+      <workItem from="1646565485952" duration="9255000" />
+      <workItem from="1646647132031" duration="15050000" />
+      <workItem from="1646741323058" duration="2531000" />
+      <workItem from="1646913925742" duration="753000" />
+      <workItem from="1646998445495" duration="7724000" />
+      <workItem from="1647068070296" duration="3447000" />
+>>>>>>> b88bbd99b3703f8e3d6c145a50af84ba790af52e
     </task>
     <servers />
   </component>
@@ -99,9 +110,12 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+<<<<<<< HEAD
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+=======
+>>>>>>> b88bbd99b3703f8e3d6c145a50af84ba790af52e
   </component>
   <component name="WindowStateProjectService">
     <state x="461" y="183" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1646807555230">

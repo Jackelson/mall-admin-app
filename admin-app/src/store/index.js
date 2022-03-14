@@ -18,12 +18,16 @@ export default new Vuex.Store({
       state.userInfo = info;
     },
     removeInfo(state){
+<<<<<<< HEAD
       state.userInfo = {
         // appkey: "",
         // email: "",
         // role: "",
         // username: "",
       };
+=======
+      state.userInfo = {};
+>>>>>>> e8d480eee26bbb0e20f84b3539ae900c3e8feab4
     },
     changeMenu(state,routes){
         state.menuRoutes = routes

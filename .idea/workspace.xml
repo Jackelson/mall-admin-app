@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="01374ccf-d8d7-49c8-96b0-22bc2355b3de" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-app/src/views/Layout/Product/components/seach.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/li123456" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/li123456.pub" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-app/src/api/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-app/src/api/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-app/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-app/src/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-app/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-app/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-app/src/views/Layout/Product/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin-app/src/views/Layout/Product/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-app/src/views/components/Menu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin-app/src/views/components/Menu.vue" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="262N7xO65c95jTrAauwGl8hKRPd" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="添加" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin-app/src/views" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\vue项目\每日优鲜\admin-app\src\views\Layout\Home" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\vue项目\每日优鲜\admin-app\src\views" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="01374ccf-d8d7-49c8-96b0-22bc2355b3de" name="默认更改列表" comment="" />
+      <created>1646617563965</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646617563965</updated>
+      <workItem from="1646617590185" duration="2382000" />
+      <workItem from="1646621209439" duration="14280000" />
+      <workItem from="1646700462871" duration="1724000" />
+      <workItem from="1646790542769" duration="31927000" />
+      <workItem from="1646978072079" duration="1351000" />
+      <workItem from="1646986308605" duration="5263000" />
+      <workItem from="1647048387402" duration="3377000" />
+      <workItem from="1647216210884" duration="1373000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="461" y="183" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1646807555230">
+      <screen x="0" y="0" width="1440" height="852" />
+    </state>
+    <state x="461" y="183" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.852@0.0.1440.852" timestamp="1646807555230" />
+    <state x="346" y="0" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1646814421927">
+      <screen x="0" y="0" width="1440" height="852" />
+    </state>
+    <state x="346" y="0" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.852@0.0.1440.852" timestamp="1646814421927" />
+    <state x="92" y="92" width="1256" height="668" key="dock-window-1" timestamp="1646802869778">
+      <screen x="0" y="0" width="1440" height="852" />
+    </state>
+    <state x="92" y="92" width="1256" height="668" key="dock-window-1/0.0.1440.852@0.0.1440.852" timestamp="1646802869778" />
+    <state x="129" y="-2" width="1177" height="1976" key="search.everywhere.popup" timestamp="1646880481650">
+      <screen x="0" y="0" width="1440" height="852" />
+    </state>
+    <state x="129" y="-2" width="1177" height="1976" key="search.everywhere.popup/0.0.1440.852@0.0.1440.852" timestamp="1646880481650" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/admin-app/src/utils/permission.js</url>
+          <line>12</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/admin-app/src/main.js</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

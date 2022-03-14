@@ -15,18 +15,13 @@ instance.interceptors.request.use((config) => {
       appkey: Store.state.userInfo.appkey,
     },
   };
-}, (error) => {
-  console.log(error);
-});
+}, (error) => error);
 
 instance.interceptors.response.use((res) => {
-  console.log(res);
   if (res.data.status === 'fail') {
     return Promise.reject(res.data.msg);
   }
   return res.data.data;
-}, (error) => {
-  console.log(error);
-});
+}, (error) => error);
 
 export default instance;

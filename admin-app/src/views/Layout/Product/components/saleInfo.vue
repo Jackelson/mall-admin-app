@@ -27,21 +27,24 @@
           v-model="form.unit"
         />
       </a-form-model-item>
-      <a-form-model-item label="商品相册" prop="images">
+      <a-form-model-item label="商品相册" prop="images" v-model="images">
         <a-upload
-          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          :action="'http://mallapi.duyiedu.com/upload/images?appkey=' + $store.state.userInfo.appkey"
           list-type="picture-card"
           :file-list="fileList"
+          @preview="handlePreview"
+          @change="handleChange"
+          name="avator"
         >
           <div v-if="fileList.length < 8">
-            <a-icon type="plus" />
+            <a-icon type="plus"/>
             <div class="ant-upload-text">
               Upload
             </div>
           </div>
         </a-upload>
-        <a-modal  :footer="null" >
-          <img alt="example" style="width: 100%" :src="previewImage" />
+        <a-modal :visible="previewVisible" :footer="null" @cancel="handleCancel">
+          <img alt="example" style="width: 100%" :src="previewImage"/>
         </a-modal>
       </a-form-model-item>
       <a-form-model-item :wrapper-col="{ span: 14, offset: 4 }" class="button">
@@ -57,40 +60,87 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      labelCol: { span: 5 },
-      wrapperCol: { span: 14 },
-      cateGoryList: [],
-      categorySon: [],
-      previewImage: '',
-      fileList: [
-        {
-          uid: '-1',
-          name: 'image.png',
-          status: 'done',
-          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        },
-      ],
-      rules: {},
-    };
-  },
-  props:['form'],
-  methods: {
-    pre(){
-      this.$emit('pre',this.form)
-    },
-    next(){
+  import api from '@/api/index';
 
+  function getBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  }
+
+  export default {
+    data() {
+      return {
+        previewVisible: false,
+        previewImage: '',
+        labelCol: {span: 5},
+        wrapperCol: {span: 14},
+        cateGoryList: [],
+        categorySon: [],
+        fileList: [],
+        rules: {},
+        images: [],
+      };
     },
-  },
-};
+
+    props: ['form'],
+    created() {
+      if (this.form.images.length > 0) {
+        this.fileList = this.form.images.map((item, index) => {
+          return {
+            uid: index,
+            name: `image-${index}.png`,
+            status: 'done',
+            url: item,
+          }
+        })
+      }
+    },
+    methods: {
+      pre() {
+        this.$emit('pre', this.form);
+      },
+      next() {
+        if (this.$route.params.id) {
+          api.edit({...this.form, images: this.images}).then(res => {
+            this.$message.success("商品修改成功")
+          })
+        } else {
+          api.uploadInfo({...this.form, images: this.images}).then(res => {
+            this.$message.success("商品添加成功")
+          })
+        }
+        this.$router.push({
+          name: 'List',
+        })
+      },
+      handleCancel() {
+        this.previewVisible = false;
+      },
+      async handlePreview(file) {
+        if (!file.url && !file.preview) {
+          file.preview = await getBase64(file.originFileObj);
+        }
+        this.previewImage = file.url || file.preview;
+        this.previewVisible = true;
+      },
+      handleChange({file, fileList}) {
+        if (file.status === 'done') {
+          this.images.push(file.thumbUrl);
+        }
+        this.fileList = fileList;
+      },
+    },
+  };
 </script>
 <style>
-  .button{
+  .button {
     text-align: center;
   }
+
   .ant-upload-select-picture-card i {
     font-size: 32px;
     color: #999;

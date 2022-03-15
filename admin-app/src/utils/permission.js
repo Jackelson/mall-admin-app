@@ -9,6 +9,9 @@ const roleRouter = {
     {
       name: 'List',
     },
+    {
+      name: 'ProductEdit',
+    },
   ],
   admin: [
     {
@@ -22,6 +25,8 @@ const roleRouter = {
     },
     {
       name: 'Category',
+    }, {
+      name: 'ProductEdit',
     },
   ],
 };

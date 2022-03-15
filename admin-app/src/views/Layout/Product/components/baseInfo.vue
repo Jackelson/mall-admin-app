@@ -23,8 +23,8 @@
             {{n.name}}
           </a-select-option>
         </a-select>
-        <a-select v-model="form.region" placeholder="请选择商品子类目">
-          <a-select-option v-for="(c,index) in categorySon" :key="index" :value="c.name">
+        <a-select v-model="form.c_item" placeholder="请选择商品子类目" >
+          <a-select-option v-for="(c,index) in categorySon" :key="index" :value="c">
             {{c}}
           </a-select-option>
         </a-select>
@@ -56,6 +56,7 @@
 
 <script>
 import api from '@/api/index';
+
 export default {
   data() {
     return {
@@ -66,7 +67,7 @@ export default {
       rules: {},
     };
   },
-  props:['form'],
+  props: ['form'],
   created() {
     api.getCategory().then((res) => {
       this.cateGoryList = res.data;
@@ -74,8 +75,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$emit('submit',this.form);
-
+      this.$emit('submit', this.form);
     },
     resetForm() {
       this.$refs.ruleForm.resetFields();

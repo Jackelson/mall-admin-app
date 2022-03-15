@@ -42,9 +42,19 @@ const asyncRouterMap = [
         type: 'menu',
         component: () => import('../views/Layout/Product/Category'),
       },
-
+      {
+        path: 'edit/:id',
+        name: 'ProductEdit',
+        meta: {
+          title: '修改商品',
+        },
+        type: 'menu',
+        isShow: true,
+        component: () => import('../views/Layout/Product/addProduct'),
+      },
     ],
   },
+
 ];
 const routes = [
   {
@@ -58,7 +68,7 @@ const routes = [
     type: 'home',
     children: [
       {
-        path: '/index',
+        path: 'index',
         name: 'Index',
         type: 'fund',
         component: () => import('../views/Layout/Home/Statis/index.vue'),
@@ -68,13 +78,14 @@ const routes = [
       },
     ],
   },
+
   {
     path: '/login',
     name: 'Login',
     component: Login,
     isShow: false,
     meta: {
-      title: 'login',
+      title: '登录',
     },
   },
 ];
@@ -85,10 +96,12 @@ let isRouter = false;
 router.beforeEach((to, from, next) => {
   if (to.path !== '/login') {
     if (store.state.userInfo.username && store.state.userInfo.email) {
-      const sub = permission(store.state.userInfo.role, asyncRouterMap);
-      store.dispatch('changeMenu', routes.concat(sub));
       if (!isRouter) {
-        router.addRoutes(sub);
+        const sub = permission(store.state.userInfo.role, asyncRouterMap);
+        store.dispatch('changeMenu', routes.concat(sub)).then(()=>{
+          router.addRoutes(sub);
+          next();
+        });
         isRouter = true;
       }
       return next();

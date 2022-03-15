@@ -6,7 +6,7 @@
         <router-link to="/add">添加商品</router-link>
       </a-button>
     </div>
-    <Table :data="tableData" :pageInfo="page" @change="changePage" @removeHandel="remove"/>
+    <Table :data="tableData" :pageInfo="page" @change="changePage" @removeHandel="remove" @edit="editProduct"/>
   </div>
 </template>
 <script>
@@ -81,6 +81,14 @@ export default {
           console.log('Cancel');
         },
       });
+    },
+    editProduct(record) {
+      this.$router.push({
+        name: 'ProductEdit',
+        params: {
+          id: record.id,
+        },
+      })
     },
   },
 };

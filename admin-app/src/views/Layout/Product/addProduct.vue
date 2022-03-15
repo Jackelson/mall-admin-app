@@ -10,7 +10,7 @@
 <script>
 import baseInfo from './components/baseInfo.vue';
 import saleInfo from './components/saleInfo.vue';
-
+import api from '@/api/index';
 export default {
   components: {
     baseInfo,
@@ -29,8 +29,16 @@ export default {
           content: 'Second-content',
         },
       ],
-      form:{}
+      form: {},
     };
+  },
+  created() {
+    const id = this.$route.params.id;
+    if(id){
+      api.getDeatil(id).then(res=>{
+         this.form  =  res;
+      })
+    }
   },
   methods: {
     next() {
@@ -41,10 +49,10 @@ export default {
     },
     handelSubmit(base) {
       this.next();
-      this.form = {...this.form,...base}
+      this.form = { ...this.form, ...base };
     },
-    handelPre(form){
-      this.form = {...this.form,...form};
+    handelPre(form) {
+      this.form = { ...this.form, ...form };
       this.prev();
     },
   },

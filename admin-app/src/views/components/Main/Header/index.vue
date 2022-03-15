@@ -6,14 +6,14 @@
       </a-button>
     </div>
     <div class="top-breadcrumbs">
-      <a-breadcrumb>
+      <a-breadcrumb :separator="$router.currentRoute.matched[1] ? '/' : ''">
         <a-breadcrumb-item>
           <router-link to="/"> 首页 </router-link>
         </a-breadcrumb-item>
-        <a-breadcrumb-item v-if="$router.currentRoute.matched[1]">
-          <router-link :to="$router.currentRoute.matched[1].name">
+        <a-breadcrumb-item v-show="$router.currentRoute.matched[1]">
+          <a>
             {{$route.meta.title}}
-          </router-link>
+          </a>
         </a-breadcrumb-item>
       </a-breadcrumb>
     </div>
@@ -28,6 +28,7 @@
 
 <script>
 export default {
+
   methods: {
     toggleCollapsed() {
       this.$store.dispatch('change');

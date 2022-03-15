@@ -87,12 +87,7 @@ export default {
       this.$emit('change', page);
     },
     edit(record) {
-      this.$router.push({
-        path: '/add',
-        params: {
-          id: record.id,
-        },
-      });
+      this.$emit('edit', record);
     },
     remove(record) {
       this.$emit('removeHandel', record);

@@ -23,8 +23,7 @@ export default {
       this.key = new Date().getTime();
     },
   },
-  methods: {
-  },
+
 };
 </script>
 <style lang="less">

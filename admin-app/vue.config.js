@@ -15,5 +15,5 @@ module.exports = {
       "vue-router": "VueRouter",
     },
   },
-  publicPath: process.env.NODE_ENV === 'production' ? '/admin-app/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/mall-admin-app/' : '/',
 };

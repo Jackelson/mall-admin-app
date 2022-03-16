@@ -1,3 +1,4 @@
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 module.exports = {
   lintOnSave: false,
   css: {
@@ -7,4 +8,12 @@ module.exports = {
       },
     },
   },
+  configureWebpack: {
+    externals: {
+      vue: "Vue",
+      vuex: "Vuex",
+      "vue-router": "VueRouter",
+    },
+  },
+  publicPath: process.env.NODE_ENV === 'production' ? '/admin-app/' : '/',
 };

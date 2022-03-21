@@ -1,11 +1,15 @@
 <template>
-  <div class="home">
-      <router-view></router-view>
+  <div>
+    <h1>购物车</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home',
+
 };
 </script>
+
+<style scoped>
+
+</style>

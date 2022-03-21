@@ -4,7 +4,7 @@
          v-for="(n,i) in menuList"
          :key="i"
          :class="{active:i === index}"
-         @touchend="scrollTo(i)"
+         @touchend="scrollTo(i,$event)"
          @touchstart="move = false"
          @touchmove="move = true"
     >
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import move from '../utils/move';
+
 export default {
   data() {
     return {
@@ -112,16 +114,23 @@ export default {
       ],
     };
   },
+  created() {
+    this.$store.dispatch('setSide', this.menuList[0].title);
+  },
   methods: {
-    scrollTo(i) {
+    scrollTo(i, e) {
       if (this.move) {
         return;
       }
       this.index = i;
+      const item = e.target;
+      const itemWrap = this.$refs.scroll;
+      const itemWidth = item.offsetWidth;
+      const itemLeft = item.getBoundingClientRect().left;
+      const itemWrapWidth = itemWrap.offsetWidth;
+      move(itemWrap.scrollLeft, itemWidth / 2 + itemLeft - itemWrapWidth / 2, itemWrap, 'scrollLeft');
+      this.$store.dispatch('setSide', this.menuList[i].title);
     },
-    // moveSroll(start, end) {
-    //
-    // },
   },
 };
 </script>

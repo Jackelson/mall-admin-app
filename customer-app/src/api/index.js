@@ -9,6 +9,7 @@ export default {
     });
   },
   getGoods(params) {
+    console.log(params);
     return request.get('/getGoodsList', {
       params,
     });

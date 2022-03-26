@@ -23,12 +23,14 @@ export default {
   computed: {
     ...mapState(['sideList']),
   },
-  created() {
-    this.$store.dispatch('changeList', {
-      type: this.sideList[0],
-      page: 1,
-      size: 10,
-    });
+  watch: {
+    sideList() {
+      this.$store.dispatch('changeList', {
+        type: this.sideList[0],
+        page: 1,
+        size: 10,
+      });
+    },
   },
   methods: {
     handelTouch(e, i) {
@@ -40,6 +42,12 @@ export default {
       const sideTop = side.getBoundingClientRect().top;
       move(side.scrollTop, itemTop + itemHeight / 2 - sideHeight / 2 - sideTop, side, 'scrollTop');
       this.index = i;
+      this.$store.dispatch('changeList', {
+        type: e.target.innerHTML,
+        page: 1,
+        size: 10,
+        sort: this.type,
+      });
     },
   },
 };

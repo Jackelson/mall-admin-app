@@ -9,6 +9,7 @@ export default new Vuex.Store({
     sideList: [],
     isLoading: false,
     goodsList: [],
+    type: '',
   },
   mutations: {
     setSide(state, list) {
@@ -20,17 +21,28 @@ export default new Vuex.Store({
     changeList(state, list) {
       state.goodsList = list;
     },
+    changeType(state, type) {
+      state.type = type;
+    },
   },
   actions: {
     async setSide({ commit }, type) {
       commit('changeLoading', true);
       const list = await api.getSide(type);
       commit('setSide', list);
-      commit('changeLoading', false);
     },
-    async changeList({ commit }, info) {
-      const vue = await api.getGoods(info);
+    async changeList({ commit, state }, info) {
+      let newInfo = null;
+      if (info.type !== '') {
+        newInfo = { ...info, type: info.type };
+        commit('changeType', info.type);
+      } else {
+        newInfo = { ...info, type: state.type };
+      }
+      console.log(newInfo);
+      const vue = await api.getGoods(newInfo);
       commit('changeList', vue);
+      commit('changeLoading', false);
     },
   },
 });
